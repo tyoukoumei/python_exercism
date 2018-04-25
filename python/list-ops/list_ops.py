@@ -1,53 +1,30 @@
 def append(xs, ys):
-    for y in ys:
-        xs.append(y)
-    return xs
+    pass
 
 
 def concat(lists):
-    out = []
-    for xs in lists:
-        for item in xs:
-            out.append(item)
-    return out
+    pass
 
 
 def filter_clone(function, xs):
-    out = []
-    for x in xs:
-        if function(x):
-            out.append(x)
-    return out
+    pass
 
 
 def length(xs):
-    ll = 0
-    for x in xs:
-        ll += 1
-    return ll
+    pass
 
 
 def map_clone(function, xs):
-    out = []
-    for x in xs:
-        out.append(function(x))
-    return out
+    pass
 
 
 def foldl(function, xs, acc):
-    for x in xs:
-        acc = function(acc, x)
-    return acc
+    pass
 
 
 def foldr(function, xs, acc):
-    for x in xs[::-1]:
-        acc = function(x, acc)
-    return acc
+    pass
 
 
 def reverse(xs):
-    out = []
-    for x in xs[::-1]:
-        out.append(x)
-    return out
+    pass

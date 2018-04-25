@@ -9,6 +9,7 @@ hamming
 word-count
 gigasecond
 bob
+yacht
 run-length-encoding
 meetup
 armstrong-numbers
@@ -100,3 +101,5 @@ react
 binary-search-tree
 custom-set
 spiral-matrix
+sgf-parsing
+bank-account

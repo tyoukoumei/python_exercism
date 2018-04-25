@@ -55,19 +55,12 @@ def normalize(original: str, module_name: str):
     return '\n'.join(file_content)
 
 
-def get_file_name(p_name: str):
-    with open("./names.txt") as names:
-        for name in names:
-            name = name.strip()
-            task_name = name[4:-6]
-            if p_name == task_name:
-                return name
-    raise Exception("ファイルからノートブックネーム取得できません")
-
-
-def generate_exercism(d: str):
+def generate_exercism(d: str, seq=None):
     p = Path(d)
-    f_name = get_file_name(p.name)
+    if seq:
+        f_name = "{:03d}_{}".format(seq, p.name)
+    else:
+        f_name = p.name
     for f in p.glob('**/*'):
         # print(str(f))
         if not f.is_dir():
@@ -77,19 +70,19 @@ def generate_exercism(d: str):
                 exp = content
             elif str(f).endswith("py"):
                 src = content
-            else:
-                print(str(f))
-                assert (str(f).endswith("README.md"))
+            elif str(f).endswith("/README.md"):
                 doc = content
+            else:
+                print("Unexpected: ", str(f))
     exp = normalize(exp, p.name)
     main(f_name, doc, src, exp)
 
 
 def loop_parent(d: str):
     with open("./order.txt") as order:
-        for l in order:
+        for i, l in enumerate(order):
             p = Path(d)
-            generate_exercism(p.joinpath(l.strip()))
+            generate_exercism(p.joinpath(l.strip()), i)
 
 
 if __name__ == "__main__":
@@ -100,5 +93,4 @@ if __name__ == "__main__":
         if d == "python":
             loop_parent(d)
         else:
-            generate_exercism(d)
-
+            print("unexpectd")
