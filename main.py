@@ -58,7 +58,7 @@ def normalize(original: str, module_name: str):
 def generate_exercism(d: str, seq=None):
     p = Path(d)
     if seq:
-        f_name = "{:03d}_{}".format(seq, p.name)
+        f_name = "{:03d}_{}.ipynb".format(seq, p.name)
     else:
         f_name = p.name
     for f in p.glob('**/*'):
