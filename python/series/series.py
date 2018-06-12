@@ -6,3 +6,4 @@ def slices(series, length):
         for i in range(len(series) - length + 1):
             slice_list.append([int(j) for j in series[i:i+length]])
     return slice_list
+
